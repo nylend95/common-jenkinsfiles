@@ -12,7 +12,7 @@ def call(def sayDuringCompile, def sayDuringTests, def sayDuringBuild) {
 			
 			stage('Test') {
 				steps {
-					sh "echo ${sayDruingTest}"
+					sh "echo ${sayDruingTests}"
 					sh 'mvn test'
 				}
 			}
