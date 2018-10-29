@@ -1,10 +1,15 @@
 package org.common
 
-class Bar {
+class Bar implements Serializable {
 
 	def run(Map overrides) {
-		
-		def pipelineParams = [sayDuringCompile:'Default compile message', sayDuringTests:'Default tests message', sayDuringBuild:'Default build message']
+
+		def pipelineParams = [
+			sayDuringCompile:'Default compile message',
+			sayDuringTests:'Default tests message',
+			sayDuringBuild:'Default build message'
+			]
+
 		if (overrides.containsKey(sayDuringCompile)) {
 			pipelineParams.sayDuringCompile = overrides.sayDuringCompile
 		}
