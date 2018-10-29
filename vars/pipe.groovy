@@ -1,7 +1,6 @@
-def run(compileMessage) {
+def startPipeline() {
 
 	def pipelineParams = [sayDuringCompile:'Default compile message', sayDuringTests:'Default tests message', sayDuringBuild:'Default build message']
-	pipelineParams.sayDuringCompile = compileMessage;
 
 	pipeline {
 		agent any
