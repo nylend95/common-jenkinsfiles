@@ -1,16 +1,10 @@
 def run(Map overrides) {
 
 	def pipelineParams = [sayDuringCompile:'Default compile message', sayDuringTests:'Default tests message', sayDuringBuild:'Default build message']
-	if (overrides.containsKey(sayDuringCompile)) {
-		pipelineParams.sayDuringCompile = overrides.sayDuringCompile
+	if (overrides.containsKey('sayDuringCompile')) {
+		pipelineParams.sayDuringCompile = overrides.sayDuringCompile;
+		
 	}
-	if (overrides.containsKey(sayDuringTests)) {
-		pipelineParams.sayDuringTests = overrides.sayDuringTests
-	}
-	if (overrides.containsKey(sayDuringBuild)) {
-		pipelineParams.sayDuringBuild = overrides.sayDuringBuild
-	}
-
 
 	pipeline {
 		agent any
