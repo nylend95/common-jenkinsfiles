@@ -12,14 +12,14 @@ def call(def sayDuringCompile, def sayDuringTests, def sayDuringBuild) {
 			
 			stage('Test') {
 				steps {
-					sh "echo ${sayDruingTests}"
+					sh "echo ${sayDuringTests}"
 					sh 'mvn test'
 				}
 			}
 
 			stage('Build') {
 				steps {
-					sh "echo ${sayDruingBuild}"
+					sh "echo ${sayDuringBuild}"
 					sh 'mvn clean package -DskipTests'
 				}
 			}
