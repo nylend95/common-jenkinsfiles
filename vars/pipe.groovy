@@ -7,21 +7,21 @@ def startPipeline() {
 		stages {
 			stage('Compile') {
 				steps {
-					sh "echo ${pipelineParams.sayDuringCompile}"
+					sh 'echo "${pipelineParams.sayDuringCompile}"'
 					sh 'mvn compile'
 				}
 			}
 			
 			stage('Test') {
 				steps {
-					sh "echo ${pipelineParams.sayDuringTests}"
+					sh 'echo "${pipelineParams.sayDuringTests}"'
 					sh 'mvn test'
 				}
 			}
 
 			stage('Build') {
 				steps {
-					sh "echo ${pipelineParams.sayDuringBuild}"
+					sh 'echo "${pipelineParams.sayDuringBuild}"'
 					sh 'mvn clean package -DskipTests'
 				}
 			}
