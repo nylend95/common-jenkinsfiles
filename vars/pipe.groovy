@@ -1,6 +1,7 @@
-def startPipeline() {
+def call(Map overrides) {
 
 	def pipelineParams = [sayDuringCompile:'Default compile message', sayDuringTests:'Default tests message', sayDuringBuild:'Default build message']
+	pipelineParams.putAll(overrides);
 
 	pipeline {
 		agent any
