@@ -24,4 +24,4 @@ jenkinsfile(overrides)
 ```
 
 [pipe.groovy](/vars/pipe.groovy) is subject to change and is only an example.
-The [Jenkinsfile](Jenkinsfile) is an example of a Jenkinsfile.
+This [Jenkinsfile](Jenkinsfile) is an example of a Jenkinsfile.
