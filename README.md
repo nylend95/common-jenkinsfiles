@@ -5,6 +5,7 @@ The pipeline can be used by any other project which uses Jenkins as a CI/CD-tool
 
 ## Usage
 Jenkins-plugin installed: [Pipeline Remote Loader Plugin](https://github.com/jenkinsci/workflow-remote-loader-plugin)
+
 Load this repo and load the [file](https://github.com/nylend95/common-jenkinsfiles/blob/master/vars/pipe.groovy) with:
 
 ```
