@@ -14,7 +14,7 @@ fileLoader.withGit('https://github.com/nylend95/common-jenkinsfiles.git', '', nu
 }
 ```
 
-The loaded file takes in a Map of overrides. This can be used to change settings (in this example, just basic printing of a variable) specific to your project.
+The loaded file takes in a Map of overrides. This can be used to change settings (in this example, just basic printing of variables) specific to your project. Only keys specified in the loaded file are able to be overwritten.
 
 ```
 Map overrides = [:]
