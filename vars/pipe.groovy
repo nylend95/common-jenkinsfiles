@@ -1,32 +1,32 @@
+def label = "mypod-${UUID.randomUUID().toString()}"
+
 def call(Map overrides) {
 
-	def pipelineParams = [sayDuringCompile:'Default compile message', sayDuringTests:'Default tests message', sayDuringBuild:'Default build message']
-	pipelineParams.putAll(overrides);
+	podTemplate(cloud: 'openshift', label: label, containers: [
+        containerTemplate(name: 'maven', image: 'docker.io/library/maven:3.6-jdk-11.slim',
+             ttyEnabled: true, command: 'cat')
+      ]) {
 
-	pipeline {
-		agent any
-		stages {
-			stage('Compile') {
-				steps {
-					sh "echo ${pipelineParams.sayDuringCompile}"
-					sh 'mvn compile'
-				}
-			}
-			
-			stage('Test') {
-				steps {
-					sh "echo ${pipelineParams.sayDuringTests}"
-					sh 'mvn test'
-				}
-			}
+        node(label) {
+            checkout scm
 
-			stage('Build') {
-				steps {
-					sh "echo ${pipelineParams.sayDuringBuild}"
-					sh 'mvn clean package -DskipTests'
-				}
-			}
-		}
-	}
+            stage('Stage OUTSIDE container') {
+                echo "Hello World!"   
+            }
+
+            container('maven') {
+                stage('First stage IN container') {
+                    echo "Hello Container"
+                }
+                stage('Final stage IN container') {
+                    echo "Goodbye Container"
+                }
+            }
+            
+            stage('Final stage OUTSIDE container') {
+                echo "Goodbye Jenkins"   
+            }
+        }
+    }
 }
 return this;
