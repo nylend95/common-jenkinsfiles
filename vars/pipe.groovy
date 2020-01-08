@@ -1,9 +1,10 @@
-def label = "mypod-${UUID.randomUUID().toString()}"
 
 def call(Map overrides) {
 
-	podTemplate(cloud: 'openshift', label: label, containers: [
-        containerTemplate(name: 'maven', image: 'docker.io/library/maven:3.6-jdk-11.slim',
+  def label = "mypod-${UUID.randomUUID().toString()}"
+	
+  podTemplate(cloud: 'openshift', label: label, containers: [
+        containerTemplate(name: 'maven', image: 'docker.io/library/maven:3.6-jdk-11-slim',
              ttyEnabled: true, command: 'cat')
       ]) {
 
